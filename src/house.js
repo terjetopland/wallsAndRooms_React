@@ -1,5 +1,8 @@
-const houseName = 'My house'
+/*const houseName = 'My house'
 const streetAddress = 'myHouse street'
 const houseNumber = 34
-
-export {houseName, streetAddress, houseNumber}
+*/
+function HouseName() {
+    return <h2>My house name is 'cool house'</h2>;
+}
+export default HouseName;
