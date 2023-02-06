@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import styled from './testOne.css';
 
-const firstElement = <h1 className="firstElementStyle">Hello again!</h1>
 
 class Room {
     constructor(name) {
@@ -28,14 +26,26 @@ class Wall extends Room{
 }
 
 
-
 const wallOne = new Wall('Sleepingroom', 100);
+const infoWallOne = wallOne.nameOfRoom() + ' and the ' + wallOne.viewWallThickness();
 
+const myArray =['room1', 'room2', 'room3'];
 
+const myRooms = myArray.map((item) => <p><button>{item}</button></p>);
+const myElements = (
+    <table>
+        <tr>
+            <button>testing out</button>
+        </tr>
+        <tr>
+            Something more
+        </tr>
+    </table>
+);
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(wallOne.viewAllInfoOfWall());
+root.render(myElements);
 
 
