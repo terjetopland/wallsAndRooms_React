@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import House from "./house";
+
 
 
 class Room {
@@ -29,23 +31,66 @@ class Wall extends Room{
 const wallOne = new Wall('Sleepingroom', 100);
 const infoWallOne = wallOne.nameOfRoom() + ' and the ' + wallOne.viewWallThickness();
 
-const myArray =['room1', 'room2', 'room3'];
 
-const myRooms = myArray.map((item) => <p><button>{item}</button></p>);
+
+
+const myButton = (<button id='click' onClick={ClickIt}>testing out</button>);
+const refreshClick = (<button id='refresh' onClick={RefreshNumber}>Refresh</button>);
 const myElements = (
     <table>
-        <tr>
-            <button>testing out</button>
-        </tr>
-        <tr>
-            Something more
-        </tr>
+        <tbody>
+            <tr>
+                <td>Something</td>
+            </tr>
+            <tr>
+                <td>Something more</td>
+            </tr>
+        </tbody>
     </table>
+
 );
+
+const combinedElement = (
+    <>
+        <div>{myElements}</div>
+        <div>{myButton}</div>
+        <div>{refreshClick}</div>
+        <div>Please hit refresh</div>
+    </>
+);
+
+function TheHeader(){
+    return <h1>This is my header</h1>;
+
+}
+
+function Combined() {
+    return (
+        <>
+            <TheHeader/>
+            <TheHeader/>
+            <div>
+                {combinedElement}
+            </div>
+            <House/>
+        </>
+    );
+}
+
+let number = 0;
+function ClickIt() {
+    number++;
+    document.getElementById('click').innerHTML = `test again ${number}`;
+}
+
+function RefreshNumber() {
+    number = 0;
+    document.getElementById('click').innerHTML = 'refreshed';
+}
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(myElements);
+root.render(<Combined/>);
 
 
